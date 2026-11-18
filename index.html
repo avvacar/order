@@ -518,7 +518,7 @@ function renderLocked(d) {
       <p>${d.city_matched ? `رتّبناها لك بحيث تظهر مراكز <b style="color:var(--cyan)">${esc(d.city_matched)}</b> أولاً` : "اختر مدينتك لعرض المراكز المعتمدة فيها"}</p></div></div>
     <div class="chips" id="chips"></div>
     <div class="grid" id="centers"></div>
-    <div class="fine"><b>تنبيه مهم:</b> ${AV} لا تقدّم خدمة التركيب، والاتفاق على موعد التركيب وسعره يكون مباشرة بينك وبين المركز الذي تختاره. ضمان ${AV} يشمل الرول (الفيلم) نفسه.</div>`;
+`;
   res.classList.remove("show"); void res.offsetWidth; res.classList.add("show");
   clearInterval(renderLocked.t);
   const tick = () => {
@@ -611,7 +611,6 @@ function render(d) {
       <p>${d.city_matched ? `رتّبناها لك بحيث تظهر مراكز <b style="color:var(--cyan)">${esc(d.city_matched)}</b> أولاً` : "اختر مدينتك لعرض المراكز المعتمدة فيها"}</p></div></div>
     <div class="chips" id="chips"></div>
     <div class="grid" id="centers"></div>
-    <div class="fine"><b>تنبيه مهم:</b> ${AV} لا تقدّم خدمة التركيب، والاتفاق على موعد التركيب وسعره يكون مباشرة بينك وبين المركز الذي تختاره. ضمان ${AV} يشمل الرول (الفيلم) نفسه.</div>
     <div class="upd">آخر تحديث للبيانات: <span class="num">${d.updated_at ? new Date(d.updated_at).toLocaleString("en-GB", { timeZone: "Asia/Riyadh", hour12: true, hour: "numeric", minute: "2-digit", day: "2-digit", month: "2-digit" }) : "—"}</span></div>`;
 
   res.classList.remove("show"); void res.offsetWidth; res.classList.add("show");
@@ -623,6 +622,33 @@ function render(d) {
 }
 
 function centers(d) {
+  if (d.centers_locked) {
+    const unlock = new Date(d.unlock_at);
+    const fmt = unlock.toLocaleString("ar-SA-u-nu-latn-ca-gregory", { timeZone: "Asia/Riyadh", weekday: "long", day: "numeric", month: "long", hour: "numeric", minute: "2-digit" });
+    $("#chips").innerHTML = "";
+    $("#centers").innerHTML = `<div class="card glow lock" style="grid-column:1/-1">
+      <div class="lk"><svg viewBox="0 0 64 64"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="rgba(0,215,249,.07)" stroke="currentColor" stroke-width="1.6"/><rect x="21" y="29" width="22" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M25.5 29v-4.5a6.5 6.5 0 0 1 13 0V29" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="32" cy="37" r="2.2" fill="currentColor"/></svg></div>
+      <h4>تظهر لك المراكز قريباً</h4>
+      <p>جارٍ تحديث نظام المراكز وتجهيزها لك، وتظهر لك هنا خلال:</p>
+      <div class="count"><div><b id="cc-h">--</b><small>ساعة</small></div><div><b id="cc-m">--</b><small>دقيقة</small></div><div><b id="cc-s">--</b><small>ثانية</small></div></div>
+      <div class="when">موعد الإتاحة: <b>${esc(fmt)}</b></div>
+    </div>`;
+    clearInterval(centers.t);
+    const tick = () => {
+      if (!document.getElementById("cc-h")) { clearInterval(centers.t); return; }
+      let ms = unlock.getTime() - Date.now();
+      if (ms <= 0) { clearInterval(centers.t); $("#go").click(); return; }
+      const h = Math.floor(ms / 3600000); ms -= h * 3600000;
+      const m = Math.floor(ms / 60000); ms -= m * 60000;
+      const sec = Math.floor(ms / 1000);
+      $("#cc-h").textContent = String(h).padStart(2, "0");
+      $("#cc-m").textContent = String(m).padStart(2, "0");
+      $("#cc-s").textContent = String(sec).padStart(2, "0");
+    };
+    tick(); centers.t = setInterval(tick, 1000);
+    return;
+  }
+  clearInterval(centers.t);
   const list = d.centers || [];
   const cities = [];
   list.forEach((c) => { if (!cities.includes(c.city)) cities.push(c.city); });
