@@ -118,6 +118,64 @@ input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px var(--cyan-glow)}
 .ohead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .ono small{display:block;color:var(--dim);font-size:12px}
 .ono b{font-family:"Readex Pro",sans-serif;font-size:24px;letter-spacing:.06em}
+.others-h{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:14px 2px 2px;color:var(--dim);font-size:13px;font-weight:600}
+.others-h::before,.others-h::after{content:"";flex:1;height:1px;background:var(--line2)}
+.center.oth{opacity:.62;filter:saturate(.6)}
+.center.oth .tag{display:none}
+#centers:not(.oopen) .center.oth{display:none}
+.others-h{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.others-h span{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line2);border-radius:999px;transition:.2s}
+.others-h:hover span{color:var(--text)}
+.others-h .car{display:inline-block;transition:transform .25s}
+#centers.oopen .others-h .car{transform:rotate(180deg)}
+/* center ratings & reviews (27 Nov 2026) */
+.rate{display:inline-flex;align-items:center;gap:7px;margin-top:2px;font-family:inherit;font-size:12.5px;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;text-align:start}
+.rate .num{color:var(--text);font-weight:600}
+.rate u{text-decoration:none;border-bottom:1px dashed var(--line2)}
+.rate:hover u{color:var(--cyan);border-color:var(--cyan)}
+.rate.none{cursor:default;color:var(--dim)}
+.stars{display:inline-flex;gap:1px}
+.stars svg{width:14px;height:14px}
+.stars .on{color:var(--cyan)} .stars .off{color:#2E3242}
+.rvf{display:grid;gap:16px}
+.rvf select,.rvf textarea{width:100%;border-radius:14px;border:1px solid var(--line2);background:#0B0B12;color:var(--text);font-family:"IBM Plex Sans Arabic",sans-serif;font-size:15px;padding:13px 14px;outline:none;transition:.2s}
+.rvf select{height:52px;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(-45deg,transparent 50%,var(--muted) 50%);background-position:18px 23px,24px 23px;background-size:6px 6px;background-repeat:no-repeat}
+.rvf textarea{min-height:104px;resize:vertical;line-height:1.8}
+.rvf select:focus,.rvf textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 4px var(--cyan-glow)}
+.pick{display:flex;gap:6px}
+.pick button{background:none;border:0;padding:2px;cursor:pointer;color:#2E3242;transition:transform .15s,color .15s}
+.pick button svg{width:34px;height:34px}
+.pick button.on{color:var(--cyan);filter:drop-shadow(0 0 8px rgba(0,215,249,.45))}
+.pick button:hover{transform:scale(1.12)}
+.pick-l{font-size:13px;color:var(--cyan);min-height:20px}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap}
+.thumbs .t{width:72px;height:72px;border-radius:12px;background:#0B0B12 center/cover;border:1px solid var(--line2);position:relative}
+.thumbs .t button{position:absolute;top:-7px;inset-inline-end:-7px;width:22px;height:22px;border-radius:50%;border:0;background:#2A2A3A;color:var(--text);font-size:14px;line-height:22px;cursor:pointer}
+.addph{width:72px;height:72px;border-radius:12px;border:1px dashed rgba(0,215,249,.45);background:var(--cyan-soft);color:var(--cyan);display:grid;place-items:center;cursor:pointer;font-size:11.5px;text-align:center;line-height:1.5}
+.addph svg{width:20px;height:20px;display:block;margin:0 auto 2px}
+.rv-done{display:flex;gap:12px;align-items:flex-start;color:var(--text);font-size:14.5px;line-height:1.8}
+.rv-done svg{width:22px;height:22px;color:var(--cyan);flex:none;margin-top:3px}
+.rv-hint{font-size:12.5px;color:var(--dim);line-height:1.7}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(3,3,6,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;animation:up .3s ease both}
+.mbox{width:100%;max-width:580px;max-height:86vh;overflow:auto;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line2);border-radius:20px;padding:22px}
+.mhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.mhead h4{font-family:"Readex Pro",sans-serif;font-size:18px;font-weight:600}
+.mhead small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.mx{width:34px;height:34px;border-radius:10px;border:1px solid var(--line2);background:#0B0B12;color:var(--text);font-size:18px;cursor:pointer;flex:none}
+.rv{border-top:1px solid var(--line);padding:14px 0}
+.rv:first-of-type{border-top:0}
+.rv .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.rv .top b{font-size:14px}
+.rv .top small{color:var(--dim);font-size:12px}
+.rv p{color:var(--text);font-size:14px;line-height:1.85;white-space:pre-line;margin:6px 0}
+.rv .ph{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.rv .ph a{width:84px;height:84px;border-radius:12px;background:#0B0B12 center/cover;border:1px solid var(--line2)}
+.adm .rv{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.adm .st{font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--muted)}
+.adm .st.approved{color:var(--cyan);border-color:rgba(0,215,249,.45)}
+.adm .acts2{display:flex;gap:8px;margin-top:10px}
+.adm .acts2 button{flex:1;height:40px;border-radius:11px;font-family:inherit;font-size:14px;cursor:pointer;border:1px solid var(--line2);background:#0B0B12;color:var(--text)}
+.adm .acts2 .ok{background:var(--cyan);color:#05121A;border-color:var(--cyan);font-weight:600}
 .cnote{display:flex;gap:9px;align-items:flex-start;margin:10px 0 4px;padding:10px 12px;border-radius:10px;font-size:12.5px;line-height:1.75;color:var(--text);background:var(--cyan-soft);border:1px solid rgba(0,215,249,.35);border-right:4px solid var(--cyan)}
 .cnote svg{width:18px;height:18px;flex:none;color:var(--cyan);margin-top:2px}
 .cnote b.w{color:var(--cyan)}
@@ -343,6 +401,8 @@ footer a:hover{color:var(--cyan)}
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6zM9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v6H5a1 1 0 0 1-1-1zM20 14h-3v6h2a1 1 0 0 0 1-1zM17 20c0 1-2 2-5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.75 5.6 6.15.9-4.45 4.33 1.05 6.12L12 16.87 6.5 19.75l1.05-6.12L3.1 9.3l6.15-.9z" fill="currentColor"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
     <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="s-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
     <symbol id="s-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
@@ -467,6 +527,7 @@ function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add
 async function copy(txt, btn) { try { await navigator.clipboard.writeText(txt); } catch { const t = document.createElement("textarea"); t.value = txt; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); } btn.classList.add("ok"); toast("تم نسخ رقم البوليصة"); setTimeout(() => btn.classList.remove("ok"), 1500); }
 
 // prefill from link: ?o=296884636
+let LAST = null; // { ref, phone } of the order currently shown (needed to submit a review)
 const qp = new URLSearchParams(location.search);
 if (qp.get("o")) $("#ref").value = latin(qp.get("o")).replace(/\D/g, "");
 // management preview (no order/phone needed): ?p=KEY&c=city
@@ -476,6 +537,8 @@ if (qp.get("p")) (async () => {
     if (r.ok) render(await r.json());
   } catch {}
 })();
+// owner-only reviews moderation: ?admin=KEY
+if (qp.get("admin")) adminPage(qp.get("admin"));
 
 $("#f").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -491,6 +554,7 @@ $("#f").addEventListener("submit", async (e) => {
     const d = await r.json().catch(() => ({}));
     if (r.status === 429) throw new Error("محاولات كثيرة خلال وقت قصير، فضلاً حاول بعد ربع ساعة.");
     if (!r.ok) throw new Error("لم نجد طلباً بهذا الرقم مع رقم الجوال المدخل. تأكد من الرقمين، وإذا كان طلبك جديداً جداً فقد يظهر خلال ساعتين.");
+    LAST = { ref, phone };
     render(d);
     history.replaceState(null, "", "?o=" + ref);
   } catch (ex) {
@@ -622,6 +686,7 @@ function render(d) {
       <p>${d.city_matched ? `رتّبناها لك بحيث تظهر مراكز <b style="color:var(--cyan)">${esc(d.city_matched)}</b> أولاً` : "اختر مدينتك لعرض المراكز المعتمدة فيها"}</p></div></div>
     <div class="chips" id="chips"></div>
     <div class="grid" id="centers"></div>
+    ${d.can_review || d.review ? `<div class="card" id="rvcard" style="margin-top:18px"></div>` : ""}
     <div class="upd">آخر تحديث للبيانات: <span class="num">${d.updated_at ? new Date(d.updated_at).toLocaleString("en-GB", { timeZone: "Asia/Riyadh", hour12: true, hour: "numeric", minute: "2-digit", day: "2-digit", month: "2-digit" }) : "—"}</span></div>`;
 
   res.classList.remove("show"); void res.offsetWidth; res.classList.add("show");
@@ -629,6 +694,7 @@ function render(d) {
   res.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", () => copy(b.dataset.copy, b)));
   $("#again").addEventListener("click", () => { helpLinks(null); res.classList.remove("show"); res.innerHTML = ""; $("#f").reset(); history.replaceState(null, "", location.pathname); $("#ref").focus(); window.scrollTo({ top: 0, behavior: "smooth" }); });
   centers(d);
+  reviewCard(d);
   setTimeout(() => res.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
 }
 
@@ -670,12 +736,13 @@ function centers(d) {
     chips.innerHTML = `<button class="chip ${cur === "all" ? "on" : ""}" data-c="all">كل المدن<sup>${list.length}</sup></button>` +
       cities.map((c) => `<button class="chip ${cur === c ? "on" : ""}" data-c="${esc(c)}">${esc(c)}<sup>${count(c)}</sup></button>`).join("");
     const shown = cur === "all" ? list : list.filter((x) => x.city === cur);
-    $("#centers").innerHTML = shown.map((c) => {
+    const card = (c) => {
       const wa = c.whatsapp || c.phone;
       const tag = c.match === "city" ? `<span class="tag">في مدينتك</span>` : c.match === "region" ? `<span class="tag near">قريب منك</span>` : "";
-      return `<div class="center ${c.match === "city" ? "mine" : ""}">${tag}
+      return `<div class="center ${c.match === "city" && !c.other ? "mine" : ""} ${c.other ? "oth" : ""}">${tag}
         <div class="ch"><svg class="hex"><use href="#hex"/></svg>
-          <div><b>${esc(c.name || "مركز تركيب معتمد")}</b><small>${ic("i-pin")}${esc(c.city)}</small></div></div>
+          <div><b>${esc(c.name || "مركز تركيب معتمد")}</b><small>${ic("i-pin")}${esc(c.city)}</small>
+            ${c.rating && c.rating.n ? `<button class="rate" type="button" data-rv="${esc(c.id)}">${starsHtml(c.rating.avg)}<span class="num">${c.rating.avg.toFixed(1)}</span><u>${c.rating.n} ${c.rating.n === 1 ? "تقييم" : c.rating.n === 2 ? "تقييمان" : c.rating.n <= 10 ? "تقييمات" : "تقييم"}</u></button>` : `<span class="rate none">${starsHtml(0)}لا توجد تقييمات بعد</span>`}</div></div>
         ${c.price_note ? `<div class="price">${ic("i-tag")}<span>${esc(c.price_note)}</span></div>` : ""}
         <div class="cnote">${ic("i-warn")}<div><b class="w">تحذير:</b> المركز للتركيب فقط — لا نبيع منتجاتنا لأي مركز، ومنتجات <b dir="ltr" style="white-space:nowrap">A<span style="color:var(--cyan)">VV</span>A CAR</b> حصرية في منصتنا الرسمية فقط.</div></div>
         <div class="acts">
@@ -683,10 +750,174 @@ function centers(d) {
           ${c.phone ? `<a class="act" href="tel:${esc(latin(c.phone).replace(/\D/g, ""))}">${ic("i-phone")}اتصال</a>` : ""}
           ${wa ? `<a class="act" href="https://wa.me/${intl(wa)}?text=${encodeURIComponent("السلام عليكم، أنا عميل AVVA CAR وأرغب في حجز موعد تركيب")}" target="_blank" rel="noopener">${ic("i-wa")}واتساب</a>` : ""}
         </div></div>`;
-    }).join("");
+    };
+    const main = shown.filter((c) => !c.other), oth = shown.filter((c) => c.other);
+    $("#centers").innerHTML = main.map(card).join("") +
+      (oth.length ? `<div class="others-h" role="button" tabindex="0" aria-expanded="false"><span>مراكز أخرى (${oth.length}) <b class="car">▾</b></span></div>` + oth.map(card).join("") : "");
+    const box = $("#centers"); box.classList.remove("oopen");
+    const oh = box.querySelector(".others-h");
+    if (oh) { const tg = () => { const o = box.classList.toggle("oopen"); oh.setAttribute("aria-expanded", o); }; oh.addEventListener("click", tg); oh.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tg(); } }); }
+    box.querySelectorAll("[data-rv]").forEach((b) => b.addEventListener("click", () => openReviews(list.find((x) => String(x.id) === b.dataset.rv))));
     chips.querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => { cur = b.dataset.c; draw(); }));
   };
   draw();
+}
+
+// ===== center ratings & reviews (owner request, 27 Nov 2026) =====
+function starsHtml(v) {
+  let h = '<span class="stars" aria-hidden="true">';
+  for (let i = 1; i <= 5; i++) h += `<svg class="${v >= i - 0.5 ? "on" : "off"}"><use href="#i-star"/></svg>`;
+  return h + "</span>";
+}
+const STAR_L = ["", "سيئ", "مقبول", "جيد", "جيد جداً", "ممتاز"];
+function post(b) { return fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }); }
+
+function modal(html) {
+  const m = document.createElement("div");
+  m.className = "modal"; m.innerHTML = `<div class="mbox" role="dialog" aria-modal="true">${html}</div>`;
+  const close = () => { m.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", esc_); };
+  const esc_ = (e) => { if (e.key === "Escape") close(); };
+  m.addEventListener("click", (e) => { if (e.target === m || e.target.closest(".mx")) close(); });
+  document.addEventListener("keydown", esc_);
+  document.body.append(m); document.body.style.overflow = "hidden";
+  return m;
+}
+async function openReviews(c) {
+  if (!c) return;
+  const m = modal(`<div class="mhead"><div><h4>تقييمات ${esc(c.name || "المركز")}</h4>
+    <small>${starsHtml(c.rating?.avg || 0)} <span class="num">${(c.rating?.avg || 0).toFixed(1)}</span> · ${esc(c.city)} · تقييمات عملائنا بعد التركيب</small></div>
+    <button class="mx" type="button" aria-label="إغلاق">×</button></div><div id="rvl"><div class="rv"><span class="spin"></span></div></div>`);
+  try {
+    const r = await post({ action: "reviews", center_id: c.id });
+    const d = await r.json();
+    const list = d.reviews || [];
+    $("#rvl", m).innerHTML = list.length ? list.map((v) => `<div class="rv">
+      <div class="top"><b>${esc(v.name || "عميل")} ${starsHtml(v.stars)}</b><small class="num">${fmtDate(v.date)}</small></div>
+      ${v.comment ? `<p>${esc(v.comment)}</p>` : ""}
+      ${v.photos?.length ? `<div class="ph">${v.photos.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" style="background-image:url('${esc(u)}')"></a>`).join("")}</div>` : ""}
+    </div>`).join("") : `<div class="rv">لا توجد تقييمات منشورة بعد.</div>`;
+  } catch { $("#rvl", m).innerHTML = `<div class="rv">تعذّر تحميل التقييمات، حاول مرة أخرى.</div>`; }
+}
+
+// Resize/compress a picked photo to a JPEG (max 1600px, ≤ ~1.5MB) and return its base64.
+async function toJpeg(file) {
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = url; });
+    let w = img.naturalWidth, h = img.naturalHeight;
+    const k = Math.min(1, 1600 / Math.max(w, h)); w = Math.round(w * k); h = Math.round(h * k);
+    const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
+    cv.getContext("2d").drawImage(img, 0, 0, w, h);
+    let q = 0.82, out = cv.toDataURL("image/jpeg", q);
+    while (out.length > 1_900_000 && q > 0.4) { q -= 0.12; out = cv.toDataURL("image/jpeg", q); }
+    return out;
+  } finally { URL.revokeObjectURL(url); }
+}
+
+function reviewCard(d) {
+  const box = $("#rvcard");
+  if (!box) return;
+  const head = `<h2><span class="ic">${ic("i-star")}</span>قيّم مركز التركيب</h2>`;
+  if (d.review) {
+    const c = (d.centers || []).find((x) => x.id === d.review.center_id);
+    box.innerHTML = head + `<div class="rv-done">${ic("i-check")}<div>${d.review.status === "approved"
+      ? `شكراً لك، تم نشر تقييمك${c ? ` لمركز <b>${esc(c.name)}</b>` : ""}.`
+      : `شكراً لك، وصلنا تقييمك${c ? ` لمركز <b>${esc(c.name)}</b>` : ""}، ويُنشر بعد مراجعته.`}</div></div>`;
+    return;
+  }
+  const cs = (d.centers || []).filter((c) => c.name);
+  const near = cs.filter((c) => c.match === "city"), rest = cs.filter((c) => c.match !== "city");
+  const opt = (c) => `<option value="${esc(c.id)}">${esc(c.name)} — ${esc(c.city)}</option>`;
+  box.innerHTML = head + `
+    <form class="rvf" id="rvf" novalidate>
+      <p class="rv-hint">ساعد غيرك من العملاء في اختيار المركز المناسب، وشاركنا تجربتك مع المركز الذي ركّب لك الحماية. يُنشر التقييم بعد مراجعته.</p>
+      <div><label for="rv-c">المركز الذي ركّب لك</label>
+        <select id="rv-c" required><option value="">اختر المركز</option>
+          ${near.length ? `<optgroup label="${esc(d.city_matched || "مدينتك")}">${near.map(opt).join("")}</optgroup>` : ""}
+          ${rest.length ? `<optgroup label="مراكز أخرى">${rest.map(opt).join("")}</optgroup>` : ""}
+        </select></div>
+      <div><label>تقييمك</label>
+        <div class="pick" id="rv-s">${[1, 2, 3, 4, 5].map((n) => `<button type="button" data-s="${n}" aria-label="${n} من 5">${ic("i-star")}</button>`).join("")}</div>
+        <div class="pick-l" id="rv-sl"></div></div>
+      <div><label for="rv-t">تعليقك <span style="color:var(--dim)">(اختياري)</span></label>
+        <textarea id="rv-t" maxlength="600" placeholder="كيف كانت جودة التركيب والقص والتعامل؟"></textarea></div>
+      <div><label>صور سيارتك بعد التركيب <span style="color:var(--dim)">(اختياري — حتى 5 صور)</span></label>
+        <div class="thumbs" id="rv-ph"></div>
+        <input type="file" id="rv-f" accept="image/*" multiple hidden></div>
+      <div class="err" id="rv-err"></div>
+      <button class="btn" type="submit" id="rv-go">${ic("i-star")}<span>أرسل التقييم</span></button>
+    </form>`;
+  let stars = 0; const photos = [];
+  const sBtns = [...box.querySelectorAll("#rv-s button")];
+  const paint = (v) => sBtns.forEach((b) => b.classList.toggle("on", Number(b.dataset.s) <= v));
+  sBtns.forEach((b) => {
+    b.addEventListener("click", () => { stars = Number(b.dataset.s); paint(stars); $("#rv-sl").textContent = STAR_L[stars]; });
+    b.addEventListener("mouseenter", () => paint(Number(b.dataset.s)));
+    b.addEventListener("mouseleave", () => paint(stars));
+  });
+  const drawPh = () => {
+    $("#rv-ph").innerHTML = photos.map((p, i) => `<div class="t" style="background-image:url('${p}')"><button type="button" data-x="${i}" aria-label="حذف">×</button></div>`).join("") +
+      (photos.length < 5 ? `<label class="addph" for="rv-f">${ic("i-cam")}أضف صورة</label>` : "");
+    box.querySelectorAll("[data-x]").forEach((b) => b.addEventListener("click", () => { photos.splice(Number(b.dataset.x), 1); drawPh(); }));
+  };
+  drawPh();
+  $("#rv-f").addEventListener("change", async (e) => {
+    const files = [...e.target.files].filter((f) => /^image\//.test(f.type)).slice(0, 5 - photos.length);
+    for (const f of files) { try { photos.push(await toJpeg(f)); } catch {} }
+    e.target.value = ""; drawPh();
+  });
+  $("#rvf").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const err = $("#rv-err"), go = $("#rv-go");
+    const cid = Number($("#rv-c").value);
+    err.classList.remove("show");
+    if (!cid) { err.textContent = "اختر المركز الذي ركّب لك الحماية."; err.classList.add("show"); return; }
+    if (!stars) { err.textContent = "اختر عدد النجوم لتقييمك."; err.classList.add("show"); return; }
+    go.disabled = true; go.innerHTML = '<span class="spin"></span><span>جاري الإرسال…</span>';
+    try {
+      const body = { action: "review_submit", center_id: cid, stars, comment: $("#rv-t").value, photos };
+      if (d.preview) body.preview = qp.get("p"); else Object.assign(body, LAST || { ref: d.ref });
+      const r = await post(body);
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok && j.error !== "already") throw new Error(j.message || "تعذّر إرسال التقييم، حاول مرة أخرى.");
+      d.review = { center_id: cid, stars, status: "pending" };
+      reviewCard(d); toast(d.preview ? "معاينة — لم يُحفظ التقييم" : "شكراً لك، وصلنا تقييمك");
+    } catch (ex) {
+      err.textContent = ex.message; err.classList.add("show");
+      go.disabled = false; go.innerHTML = `${ic("i-star")}<span>أرسل التقييم</span>`;
+    }
+  });
+}
+
+// ===== owner-only moderation page: ?admin=KEY =====
+async function adminPage(key) {
+  const res = $("#result");
+  const load = async () => {
+    const r = await post({ action: "admin", key });
+    if (!r.ok) { res.innerHTML = `<div class="card">الرابط غير صحيح.</div>`; res.classList.add("show"); return; }
+    const list = (await r.json()).reviews || [];
+    const pend = list.filter((v) => v.status === "pending");
+    const ST = { pending: "بانتظار المراجعة", approved: "منشور", rejected: "مرفوض" };
+    const one = (v) => `<div class="rv">
+      <div class="top"><b>${esc(v.center || "—")} <small style="color:var(--muted)">· ${esc(v.center_city || "")}</small></b><span class="st ${v.status}">${ST[v.status]}</span></div>
+      <div class="top"><span>${starsHtml(v.stars)} <span class="num">${v.stars}/5</span></span><small>طلب <span class="num">${esc(v.order_ref)}</span> · ${esc(v.first_name || "")} · <span class="num">${fmtDate(v.created_at)}</span></small></div>
+      ${v.comment ? `<p>${esc(v.comment)}</p>` : ""}
+      ${v.photos?.length ? `<div class="ph">${v.photos.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" style="background-image:url('${esc(u)}')"></a>`).join("")}</div>` : ""}
+      <div class="acts2">${v.status !== "approved" ? `<button class="ok" data-id="${v.id}" data-s="approved">اعتماد ونشر</button>` : ""}${v.status !== "rejected" ? `<button data-id="${v.id}" data-s="rejected">${v.status === "approved" ? "إخفاء" : "رفض"}</button>` : ""}</div>
+    </div>`;
+    res.innerHTML = `<div class="adm">
+      <div class="sec-h" style="margin-top:0"><div><h3>تقييمات المراكز</h3><p>بانتظار المراجعة: <b class="num" style="color:var(--cyan)">${pend.length}</b> · الإجمالي: <span class="num">${list.length}</span></p></div></div>
+      ${list.length ? list.map(one).join("") : `<div class="card">لا توجد تقييمات بعد.</div>`}</div>`;
+    res.classList.add("show");
+    res.querySelectorAll("[data-id]").forEach((b) => b.addEventListener("click", async () => {
+      b.disabled = true;
+      const r2 = await post({ action: "admin", key, op: "set", id: Number(b.dataset.id), status: b.dataset.s });
+      toast(r2.ok ? (b.dataset.s === "approved" ? "تم النشر" : "تم الإخفاء") : "تعذّر الحفظ");
+      load();
+    }));
+  };
+  try { await load(); } catch { res.innerHTML = `<div class="card">تعذّر الاتصال.</div>`; res.classList.add("show"); }
+  setTimeout(() => res.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
 }
 </script>
 </body>
