@@ -129,6 +129,10 @@ input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px var(--cyan-glow)}
 .others-h .car{display:inline-block;transition:transform .25s}
 #centers.oopen .others-h .car{transform:rotate(180deg)}
 /* center ratings & reviews (27 Nov 2026) */
+.pickb{display:inline-flex;align-items:center;gap:5px;margin:4px 0 2px;padding:3px 10px 3px 9px;border-radius:999px;font-size:11.5px;font-weight:600;color:var(--text);background:rgba(0,215,249,.1);border:1px solid rgba(0,215,249,.55);box-shadow:0 4px 16px -6px rgba(0,215,249,.55);white-space:nowrap}
+.pickb svg{width:12px;height:12px;color:var(--cyan)}
+.pickb .en{font-family:"Readex Pro",sans-serif;letter-spacing:.02em}
+.center.picked{border-color:rgba(0,215,249,.55);box-shadow:0 0 0 1px rgba(0,215,249,.18),0 18px 40px -22px rgba(0,215,249,.55)}
 .rate{display:inline-flex;align-items:center;gap:7px;margin-top:2px;font-family:inherit;font-size:12.5px;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;text-align:start}
 .rate .num{color:var(--text);font-weight:600}
 .rate u{text-decoration:none;border-bottom:1px dashed var(--line2)}
@@ -739,9 +743,10 @@ function centers(d) {
     const card = (c) => {
       const wa = c.whatsapp || c.phone;
       const tag = c.match === "city" ? `<span class="tag">في مدينتك</span>` : c.match === "region" ? `<span class="tag near">قريب منك</span>` : "";
-      return `<div class="center ${c.match === "city" && !c.other ? "mine" : ""} ${c.other ? "oth" : ""}">${tag}
+      return `<div class="center ${c.match === "city" && !c.other ? "mine" : ""} ${c.other ? "oth" : ""} ${c.pick ? "picked" : ""}">${tag}
         <div class="ch"><svg class="hex"><use href="#hex"/></svg>
           <div><b>${esc(c.name || "مركز تركيب معتمد")}</b><small>${ic("i-pin")}${esc(c.city)}</small>
+            ${c.pick ? `<span class="pickb">${ic("i-crown")}توصية ${AV}</span><br>` : ""}
             ${c.rating && c.rating.n ? `<button class="rate" type="button" data-rv="${esc(c.id)}">${starsHtml(c.rating.avg)}<span class="num">${c.rating.avg.toFixed(1)}</span><u>${c.rating.n} ${c.rating.n === 1 ? "تقييم" : c.rating.n === 2 ? "تقييمان" : c.rating.n <= 10 ? "تقييمات" : "تقييم"}</u></button>` : `<span class="rate none">${starsHtml(0)}لا توجد تقييمات بعد</span>`}</div></div>
         ${c.price_note ? `<div class="price">${ic("i-tag")}<span>${esc(c.price_note)}</span></div>` : ""}
         <div class="cnote">${ic("i-warn")}<div><b class="w">تحذير:</b> المركز للتركيب فقط — لا نبيع منتجاتنا لأي مركز، ومنتجات <b dir="ltr" style="white-space:nowrap">A<span style="color:var(--cyan)">VV</span>A CAR</b> حصرية في منصتنا الرسمية فقط.</div></div>
